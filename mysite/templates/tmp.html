@@ -1,0 +1,22 @@
+<!-- home.html -->
+
+{% for post in post_list %}
+    <div>
+    {{ post.title }}
+    {{ post.created_at }}
+    {{ post.photo }}
+    {{ post.content }}
+    </div>
+{% endfor %}
+
+{% if post.photo %}
+	<div class="thumbnail">
+		<img src="{{ post.photo }}" alt="">
+	</div>
+{% else %}
+	<div class="thumbnail thumbnail-default"></div>
+{% endif %}
+
+<h2 class="title">
+	    <a href="{% url 'post_detail' id=post.id %}">{{ post.title }}</a>
+</h2>
